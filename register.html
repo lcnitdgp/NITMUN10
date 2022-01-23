@@ -2436,25 +2436,52 @@
   </noscript>
   <script>
     async function sendResponses() {
-      fetch(`https://backend.lcnitd.co.in/api/register`, {
+      let delname = document.getElementById("form-name").value;
+      let delemail = document.getElementById("form-email").value;
+      let delphone = document.getElementById("form-phone").value;
+      let delcollege = document.getElementById("div1").style.display === 'none' ? 'NIT Durgapur' : document
+            .getElementById("form-college").value;
+      let delcom1 = document.getElementById("preference1").value;
+      let delpref1 = document.getElementById("preference-options1").value;
+      let delcom2 = document.getElementById("preference2").value;
+      let delpref2 = document.getElementById("preference-options2").value;
+      let delcom3 = document.getElementById("preference3").value;
+      let delpref3 = document.getElementById("preference-options3").value;
+      let delexp = document.getElementById("prev-exp").value;
+
+      if(delname=== null || delname==="" || delname === undefined 
+         || delemail=== null || delemail==="" || delemail === undefined 
+         || delphone=== null || delphone==="" || delphone === undefined 
+         || delcollege=== null || delcollege==="" || delcollege === undefined 
+         || delcom1 === null || delcom1 ==="" || delcom1 === undefined 
+         || delpref1 === null || delpref1 ==="" || delpref1 === undefined 
+         || delcom2 === null || delcom2 ==="" || delcom2 === undefined 
+         || delpref2 === null || delpref2 ==="" || delpref2 === undefined 
+         || delcom3 === null || delcom3 ==="" || delcom3 === undefined 
+         || delpref3 === null || delpref3 ==="" || delpref3 === undefined
+         || delexp === null || delexp ==="" || delexp === undefined
+      ){
+        alert('Please fill all the required details before submitting the form. A required field is marked as an asterisk.')
+      }
+      else{
+        fetch(`https://backend.lcnitd.co.in/api/register`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({
-          name: document.getElementById("form-name").value,
-          email: document.getElementById("form-email").value,
-          phoneNumber: document.getElementById("form-phone").value,
-          institute: document.getElementById("div1").style.display === 'none' ? 'NIT Durgapur' : document
-            .getElementById("form-college").value,
-          committee1: document.getElementById("preference1").value,
-          preference1: document.getElementById("preference-options1").value,
-          committee2: document.getElementById("preference2").value,
-          preference2: document.getElementById("preference-options2").value,
-          committee3: document.getElementById("preference3").value,
-          preference3: document.getElementById("preference-options3").value,
-          experience: document.getElementById("prev-exp").value,
+          name: delname,
+          email: delemail,
+          phoneNumber: delphone,
+          institute: delcollege,
+          committee1: delcom1,
+          preference1: delpref1,
+          committee2: delcom2,
+          preference2: delpref2,
+          committee3: delcom3,
+          preference3: delpref3,
+          experience: delexp
         })
       }).then((response) => {
         if (response.status === 200)
@@ -2462,28 +2489,58 @@
         else
           alert("Registration Failed, please try again!")
       })
+      }
     }
 
     async function sendResp() {
-      fetch(`https://backend.lcnitd.co.in/api/register`, {
+
+      let delname = document.getElementById("formname").value;
+      let delemail = document.getElementById("formemail").value;
+      let delphone = document.getElementById("formphone").value;
+      let delcollege = document.getElementById("div1").style.display === 'none' ? 'NIT Durgapur' : document
+            .getElementById("formcollege").value;
+      let delcom1 = document.getElementById("preference4").value;
+      let delpref1 = document.getElementById("preference-options4").value;
+      let delcom2 = document.getElementById("preference5").value;
+      let delpref2 = document.getElementById("preference-options5").value;
+      let delcom3 = document.getElementById("preference6").value;
+      let delpref3 = document.getElementById("preference-options6").value;
+      let delexp = document.getElementById("prevexp").value;
+
+      if(delname=== null || delname==="" || delname === undefined 
+         || delemail=== null || delemail==="" || delemail === undefined 
+         || delphone=== null || delphone==="" || delphone === undefined 
+         || delcollege=== null || delcollege==="" || delcollege === undefined 
+         || delcom1 === null || delcom1 ==="" || delcom1 === undefined 
+         || delpref1 === null || delpref1 ==="" || delpref1 === undefined 
+         || delcom2 === null || delcom2 ==="" || delcom2 === undefined 
+         || delpref2 === null || delpref2 ==="" || delpref2 === undefined 
+         || delcom3 === null || delcom3 ==="" || delcom3 === undefined 
+         || delpref3 === null || delpref3 ==="" || delpref3 === undefined
+         || delexp === null || delexp ==="" || delexp === undefined
+      ){
+        alert('Please fill all the required details before submitting the form. A required field is marked as an asterisk.')
+      }
+
+      else {
+        fetch(`https://backend.lcnitd.co.in/api/register`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({
-          name: document.getElementById("formname").value,
-          email: document.getElementById("formemail").value,
-          phoneNumber: document.getElementById("formphone").value,
-          institute: document.getElementById("div12").style.display === 'none' ? 'NIT Durgapur' : document
-            .getElementById("formcollege").value,
-          committee1: document.getElementById("preference4").value,
-          preference1: document.getElementById("preference-options4").value,
-          committee2: document.getElementById("preference5").value,
-          preference2: document.getElementById("preference-options5").value,
-          committee3: document.getElementById("preference6").value,
-          preference3: document.getElementById("preference-options6").value,
-          experience: document.getElementById("prevexp").value,
+          name: delname,
+          email: delemail,
+          phoneNumber: delphone,
+          institute: delcollege,
+          committee1: delcom1,
+          preference1: delpref1,
+          committee2: delcom2,
+          preference2: delpref2,
+          committee3: delcom3,
+          preference3: delpref3,
+          experience: delexp,
         })
       }).then((response) => {
         if (response.status === 200)
@@ -2491,6 +2548,7 @@
         else
           alert("Registration Failed. Please fill the form properly!")
       })
+      }
 
     }
   </script>
